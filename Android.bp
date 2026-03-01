@@ -1,6 +1,7 @@
 soong_namespace {
 	imports: [
-		"vendor/xiaomi/mithorium-common",
+		"vendor/xiaomi/mithorium-common-4.19",
+		"hardware/xiaomi",
 	],
 }
 
@@ -82,11 +83,11 @@ cc_prebuilt_binary {
         none: true,
     },
     target: {
-        android_arm: {
+        android_arm64: {
             srcs: ["proprietary/vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti"],
         },
     },
-    compile_multilib: "32",
+    compile_multilib: "64",
     check_elf_files: false,
     relative_install_path: "hw",
     prefer: true,
@@ -118,11 +119,11 @@ cc_prebuilt_binary {
         none: true,
     },
     target: {
-        android_arm: {
+        android_arm64: {
             srcs: ["proprietary/vendor/bin/hw/android.hardware.keymaster@3.0-service-qti"],
         },
     },
-    compile_multilib: "32",
+    compile_multilib: "64",
     check_elf_files: false,
     relative_install_path: "hw",
     prefer: true,
@@ -9397,5 +9398,184 @@ cc_prebuilt_binary {
 	},
 	prefer: true,
 	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "fingerprint.fpc.default",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/hw/fingerprint.fpc.default.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libhidlbase",
+                "libhidltransport",
+                "libutils",
+                "android.hardware.biometrics.fingerprint@2.1",
+                "com.fingerprints.extension@1.0",
+                "libQSEEComAPI",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "fingerprint.goodix.default",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/hw/fingerprint.goodix.default.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libc",
+                "libc++",
+                "libbase",
+                "libdl",
+                "libhardware",
+                "libcrypto",
+                "libgf_hal",
+                "libgf_ca",
+                "vendor.goodix.hardware.fingerprint@1.0",
+                "libvendor.goodix.hardware.fingerprint@1.0-service",
+                "libm",
+                "liblog",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgf_ca",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libgf_ca.so",
+            ],
+            shared_libs: [
+                "libQSEEComAPI",
+                "libhardware",
+                "libc",
+                "libm",
+                "libdl",
+                "liblog",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libgf_hal",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libgf_hal.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libutils",
+                "libgf_ca",
+                "libc",
+                "libm",
+                "libdl",
+                "liblog",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libvendor.goodix.hardware.fingerprint@1.0-service",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libvendor.goodix.hardware.fingerprint@1.0-service.so",
+            ],
+            shared_libs: [
+                "libutils",
+                "libcutils",
+                "liblzma",
+                "libc",
+                "libc++",
+                "libbase",
+                "libdl",
+                "libhardware",
+                "libcrypto",
+                "liblog",
+                "libhidlbase",
+                "libhidltransport",
+                "libhwbinder",
+                "android.hardware.keymaster@3.0",
+                "vendor.goodix.hardware.fingerprint@1.0",
+                "libgf_hal",
+                "libgf_ca",
+                "libQSEEComAPI",
+                "libm",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libmpbase",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libmpbase.so",
+            ],
+            shared_libs: [
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "32",
+    prefer: true,
+    soc_specific: true,
 }
 

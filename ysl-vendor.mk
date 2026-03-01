@@ -544,6 +544,7 @@ PRODUCT_PACKAGES += \
     libmmjpeg \
     libmmqjpeg_codec \
     libmmqjpegdma \
+    libmpbase \
     libois_lc898122 \
     libqomx_jpegdec \
     libqomx_jpegenc \
@@ -606,3 +607,10 @@ PRODUCT_PACKAGES += \
     com.qualcomm.qti.uceservice-V2.0-java \
     hvdcp_opti \
     sensors.qti
+
+PRODUCT_PACKAGES += \
+    fingerprint.fpc.default \
+    fingerprint.goodix.default \
+    libgf_ca \
+    libgf_hal \
+    libvendor.goodix.hardware.fingerprint@1.0-service
